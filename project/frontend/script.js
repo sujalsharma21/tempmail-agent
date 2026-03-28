@@ -2,7 +2,7 @@
 // Change this to your deployed Render backend URL before hosting on Netlify
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://127.0.0.1:8000'
-  : 'https://tempmail-backend-y1y6.onrender.com'   // ← update after deploying
+  : : 'https://tempmail-backend-y1y6.onrender.com'   // ← update after deploying
 
 /* ── State ──────────────────────────────────────────────────────────────── */
 const state = {

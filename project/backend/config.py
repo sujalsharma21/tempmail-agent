@@ -12,4 +12,4 @@ DB_CONFIG = {
 }
 
 MAILTM_BASE_URL = "https://api.mail.tm"
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
+CORS_ORIGINS = ["https://tempmail-agent.netlify.app", "http://localhost:3000"]

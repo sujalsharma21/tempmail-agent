@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TempMail — AI Inbox Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span>TempMail</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-btn active" data-tab="generate">
+        <span class="nav-icon">✦</span> Generate
+      </button>
+      <button class="nav-btn" data-tab="inbox">
+        <span class="nav-icon">⊡</span> Inbox
+      </button>
+      <button class="nav-btn" data-tab="otp">
+        <span class="nav-icon">⬖</span> OTP
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="active-email-label">Active Email</div>
+      <div class="active-email-value" id="sidebar-email">—</div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ── TAB: GENERATE ─────────────────────────────────── -->
+    <section class="tab-panel active" id="tab-generate">
+      <div class="panel-header">
+        <h1>Generate<br /><em>Temp Email</em></h1>
+        <p class="panel-desc">Spin up a disposable inbox in seconds. No sign-up, no trace.</p>
+      </div>
+
+      <div class="card generate-card">
+        <div class="card-label">Your Temporary Address</div>
+        <div class="email-display" id="email-display">
+          <span class="email-placeholder">— click generate —</span>
+        </div>
+        <div class="email-actions">
+          <button class="btn btn-primary" id="btn-generate">
+            <span class="btn-icon">✦</span> Generate Email
+          </button>
+          <button class="btn btn-ghost" id="btn-copy" disabled>
+            <span class="btn-icon">⊡</span> Copy
+          </button>
+        </div>
+        <div class="status-bar" id="generate-status"></div>
+      </div>
+
+      <div class="card info-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-val" id="info-created">—</div>
+            <div class="info-key">Created At</div>
+          </div>
+          <div class="info-item">
+            <div class="info-val" id="info-msgs">0</div>
+            <div class="info-key">Messages</div>
+          </div>
+          <div class="info-item">
+            <div class="info-val" id="info-otps">0</div>
+            <div class="info-key">OTPs Found</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAB: INBOX ─────────────────────────────────────── -->
+    <section class="tab-panel" id="tab-inbox">
+      <div class="panel-header">
+        <h1>Inbox</h1>
+        <p class="panel-desc">Live messages synced from mail.tm — auto-parses on refresh.</p>
+      </div>
+
+      <div class="inbox-toolbar">
+        <button class="btn btn-primary" id="btn-refresh">
+          <span class="btn-icon" id="refresh-icon">↻</span> Refresh Inbox
+        </button>
+        <div class="msg-count" id="msg-count">0 messages</div>
+      </div>
+
+      <div id="messages-list" class="messages-list">
+        <div class="empty-state">
+          <div class="empty-icon">⊡</div>
+          <div>Generate an email first, then refresh inbox</div>
+        </div>
+      </div>
+
+      <!-- Message Detail Modal -->
+      <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+          <button class="modal-close" id="modal-close">✕</button>
+          <div class="modal-sender" id="modal-sender"></div>
+          <div class="modal-subject" id="modal-subject"></div>
+          <div class="modal-meta" id="modal-meta"></div>
+          <div class="modal-divider"></div>
+          <div class="modal-body" id="modal-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAB: OTP ───────────────────────────────────────── -->
+    <section class="tab-panel" id="tab-otp">
+      <div class="panel-header">
+        <h1>OTP <em>Extractor</em></h1>
+        <p class="panel-desc">Automatically detects codes & verification links from your inbox.</p>
+      </div>
+
+      <div class="card otp-hero-card" id="otp-hero">
+        <div class="otp-label">Latest Code</div>
+        <div class="otp-value" id="otp-value">—</div>
+        <div class="otp-type-badge" id="otp-type"></div>
+        <button class="btn btn-primary" id="btn-get-otp">
+          <span class="btn-icon">⬖</span> Fetch OTP
+        </button>
+        <div class="status-bar" id="otp-status"></div>
+      </div>
+
+      <div class="card otp-tip-card">
+        <div class="tip-title">How it works</div>
+        <div class="tip-list">
+          <div class="tip-item"><span>01</span> Refresh inbox to pull latest mail</div>
+          <div class="tip-item"><span>02</span> Agent scans subject + body with regex</div>
+          <div class="tip-item"><span>03</span> OTP / link stored & displayed here</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

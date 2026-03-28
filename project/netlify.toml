@@ -1,0 +1,12 @@
+# netlify.toml
+# Place this at the root of your repository
+
+[build]
+  base    = "frontend"
+  publish = "frontend"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"

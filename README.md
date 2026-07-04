@@ -8,7 +8,7 @@
 
 **Generate → Receive → Extract. Done.**
 
-No sign-up. No trace. No cost.
+No sign-up. No trace. No cost. A Temp mail for you
 
 
 [🚀 Try it Live](https://tempmail-agent.netlify.app/) · [📖 API Docs](https://tempmail-backend-y1y6.onrender.com/docs) · [🐛 Report Bug](https://github.com/sujalsharma21/tempmail-agent/issues) · [✨ Request Feature](https://github.com/sujalsharma21/tempmail-agent/issues)

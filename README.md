@@ -266,6 +266,7 @@ CORS_ORIGINS=https://your-app.netlify.app
 [![GitHub](https://img.shields.io/badge/GitHub-sujalsharma21-181717?style=flat&logo=github)](https://github.com/sujalsharma21)
 
 <br>
+give your feedback
 ---
 
 ## 📄 License
